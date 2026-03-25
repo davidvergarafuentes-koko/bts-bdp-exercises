@@ -1,0 +1,12 @@
+# Private keys
+*.pem
+*.pem:Zone.Identifier
+
+# Python
+__pycache__
+.venv
+venv
+*.pyc
+
+# macOS
+.DS_Store
