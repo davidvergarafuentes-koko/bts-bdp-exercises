@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: airbnb_raw
+    description: Raw Airbnb data loaded by the ingestion pipeline
+    schema: main
+    tables:
+      - name: raw_listings
+        description: Airbnb property listings as ingested from the API
+        loaded_at_field: updated_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+
+      - name: raw_hosts
+        description: Airbnb host records
+        loaded_at_field: updated_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+
+      - name: raw_reviews
+        description: Guest reviews
+        loaded_at_field: review_date
+        freshness:
+          warn_after: {count: 48, period: hour}
+          error_after: {count: 168, period: hour}
